@@ -48,11 +48,24 @@
             visibility: hidden;
         }
     </style>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script type="module" crossorigin src="./assets/index-D2kEtC26.js"></script>
+    <script src="https://yandex.ru/games/sdk/v2"></script>
+  <script type="module" crossorigin src="./assets/index-DxYuRbbY.js"></script>
 </head>
 <body>
     <div id="game-container"></div>
     <div class="font-preload">.</div>
+    <script>
+        console.log('Initializing Yandex SDK');
+        YaGames
+            .init()
+            .then(ysdk => {
+                console.log('Yandex SDK initialized successfully');
+                window.ysdk = ysdk;
+                console.log('window.ysdk set:', !!window.ysdk);
+            })
+            .catch(error => {
+                console.error('Error initializing Yandex SDK:', error);
+            });
+    </script>
 </body>
 </html>
